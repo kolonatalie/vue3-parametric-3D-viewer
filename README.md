@@ -1,6 +1,6 @@
 ![Vue 3 Parametric 3D Viewer](src/assets/3d-viewer-demo.gif)
 
-# Parametric 3D Viewer | Vue 3 |  [Live Demo]()
+# Parametric 3D Viewer | Vue 3 |  [Live Demo](https://parametric-3d-viewer.vercel.app)
 A quick prototype to demonstrate Vue 3 reactivity integrated with a Three.js rendering engine.
 
 ![Vue 3](https://img.shields.io/badge/Vue.js-000000?style=for-the-badge&logo=vue.dot.js&logoColor=white)

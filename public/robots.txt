@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://kolonatalie.vercel.app/sitemap.xml
+Sitemap: https://parametric-3d-viewer.vercel.app/sitemap.xml
