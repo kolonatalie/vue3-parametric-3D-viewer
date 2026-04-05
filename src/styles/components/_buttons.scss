@@ -1,0 +1,26 @@
+@use '../abstracts/variables' as vars;
+@use '../abstracts/mixins' as mx;
+
+button {
+  padding: vars.$space-sm;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: vars.$radius;
+  transition: background vars.$trans-slow;
+}
+
+.btn-primary {
+  color: vars.$clr-secondary;
+  background: vars.$clr-primary;
+  border: none;
+
+  &:hover {
+    background: vars.$clr-accent;
+  }
+}
+
+.btn-secondary {
+  color: vars.$clr-secondary;
+  background: vars.$clr-grey;
+  border: none;
+}

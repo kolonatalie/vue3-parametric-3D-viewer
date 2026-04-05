@@ -1,0 +1,85 @@
+// ================
+// Variables
+// ================
+
+// --- Colors ---
+$clr-primary: oklch(55.6% 0.23 302deg);
+$clr-secondary: oklch(99% 0 198deg);
+$clr-accent: oklch(68% 0.12 184deg);
+$clr-bg: oklch(15% 0.02 0deg); 
+$clr-text: oklch(95% 0.01 0deg);
+$clr-error: oklch(60% 0.25 20deg);
+$clr-white: oklch(100% 0 0deg);
+$clr-black: oklch(0% 0 0deg);
+$clr-black-90: oklch(0% 0 0deg / 0.9);
+$clr-grey: oklch(65% 0 0deg);
+$clr-dark-grey: oklch(25% 0 271deg / 0.9);
+
+// --- Typography --- 
+$font-heading: 'Gill Sans', 'Gill Sans MT', sans-serif;
+$font-sans: 'Montserrat', system-ui, -apple-system, sans-serif;
+$font-mono: 'Source Code Pro', monospace;
+$font-size-base: 1rem;
+$font-size-sm: 0.85rem;
+$line-height-base: 1.6; 
+$letter-spacing: 0.02ch;
+
+// --- Layout & Breakpoints ---
+$max-width: 1200px;
+$header-height: 70px;
+
+// --- Icons --- 
+$icon-sm: 20px;
+$icon-md: 32px;
+$icon-lg: 60px;
+
+// --- Cards ---
+$card-xs: 150px;
+$card-sm: 300px;
+$card-md: 400px;
+
+// --- Spacing (8px Grid) ---
+$space-xs: 0.5rem; // 8px
+$space-sm: 1rem; // 16px
+$space-md: 1.5rem; // 24px
+$space-lg: 2rem; // 32px
+$space-xl: 4rem; // 64px
+$space-xxl: 8rem; // 128px
+
+// --- Radius ---
+$radius: 0.5rem;
+
+// --- Z-Index ---
+$z-below: -10;
+$z-base: 1;
+$z-header: 100;
+$z-dropdown: 200;
+$z-overlay: 500;
+$z-modal: 1000;
+
+// --- Animations & Transitions ---
+$ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+$ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+$trans-fast: 0.2s $ease-in-out;
+$trans-base: 0.4s $ease-out-expo;
+$trans-slow: 0.8s $ease-out-expo;
+
+// ================
+// EXPORT TO CSS VARIABLES (:root)
+// ================
+
+:root {
+  // Colors
+  --clr-primary: #{$clr-primary};
+  --clr-accent: #{$clr-accent};
+  --clr-bg: #{$clr-bg};
+  --clr-text: #{$clr-text};
+
+  // Design Tokens
+  --space-md: #{$space-md};
+  --radius: 0.75rem;
+  --transition: #{$trans-base};
+
+  // Dynamic Canvas 
+  --canvas-opacity: 1;
+}

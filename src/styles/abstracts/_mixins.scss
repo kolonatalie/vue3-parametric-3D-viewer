@@ -1,0 +1,63 @@
+@use 'variables' as vars;
+@use 'sass:map';
+
+@mixin content($max-width: vars.$max-width) {
+  width: 100%;
+  max-width: $max-width;
+  padding-inline: vars.$space-sm;
+  margin-inline: auto;
+}
+
+$breakpoints: (
+  'mobile': 480px,
+  'tablet': 768px,
+  'desktop': 1024px,
+  'wide': 1440px
+);
+
+@mixin screen($device) {
+  $size: map.get($breakpoints, $device);
+
+  @if $size {
+    @media (min-width: $size) {
+      @content;
+    }
+  } @else {
+    @error "Unknown device: #{$device}.";
+  }
+}
+
+@mixin flex-center($direction: row, $justify: center, $align: center) {
+  display: flex;
+  flex-direction: $direction;
+  align-items: $align;
+  justify-content: $justify;
+}
+
+@mixin glass {
+  background: oklch(100% 0 0deg / 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid oklch(100% 0 0deg / 0.1);
+  box-shadow: 0 8px 32px oklch(0% 0 0deg / 0.2);
+}
+
+@mixin subtitle-style {
+  font-family: vars.$font-mono;
+  font-size: clamp(0.875rem, 0.8rem + 0.4vw, 1.1rem);
+  color: vars.$clr-grey;
+  text-transform: uppercase;
+  letter-spacing: vars.$letter-spacing;
+}
+
+@mixin link {
+  color: vars.$clr-primary;
+  text-decoration: none;
+  transition: color vars.$trans-base, background vars.$trans-base;
+
+  &:hover,
+  &:active,
+  &:focus {
+    color: vars.$clr-secondary;
+    background-color: vars.$clr-primary;
+  }
+}

@@ -1,0 +1,159 @@
+@use '../abstracts/variables' as vars;
+@use '../abstracts/mixins' as mx;
+
+.loader {
+  @include mx.flex-center(column);
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: vars.$z-overlay;
+  width: 100%;
+  height: 100%;
+  background: vars.$clr-black;
+  transition: opacity vars.$trans-slow, visibility vars.$trans-slow;
+
+  &--hidden {
+    visibility: hidden;
+    opacity: 0;
+  }
+
+  &__text {
+    margin-bottom: vars.$space-sm;
+    font-family: vars.$font-mono;
+    font-size: vars.$font-size-base;
+    color: vars.$clr-grey;
+    text-transform: uppercase;
+    letter-spacing: vars.$letter-spacing;
+  }
+
+  &__bar {
+    position: relative;
+    width: vars.$card-xs;
+    height: 5px;
+    overflow: hidden;
+    background: rgb(255 255 255 / 0.1);
+    border-radius: vars.$radius;
+
+    &::before {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 800%;
+      content: '';
+      background: linear-gradient(transparent, vars.$clr-white, transparent);
+      opacity: 0.2;
+      animation: loader 1.5s ease infinite;
+    }
+
+    @keyframes loader {
+      0% {
+        transform: translateX(-100%) rotate(-45deg);
+      }
+
+      100% {
+        transform: translateX(100%) rotate(-45deg);
+      }
+    }
+  }
+
+  &__progress {
+    width: 0%;
+    height: 100%;
+    background: vars.$clr-primary;
+    transition: width vars.$trans-base;
+  }
+}
+
+.webgl {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: vars.$z-base;
+  width: 100vw;
+  height: 100dvh;
+  filter: hue-rotate(60deg) saturate(1.5) contrast(1.2);
+  outline: none;
+}
+
+.webgl-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: vars.$z-base;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  background: linear-gradient(200deg, transparent, vars.$clr-primary, transparent, vars.$clr-accent, transparent);
+  opacity: 0.1;
+}
+
+
+.hero {
+  @include mx.flex-center(column);
+
+  position: relative;
+  z-index: vars.$z-base;
+  height: 100vh;
+  padding: vars.$space-lg;
+  color: vars.$clr-white;
+  pointer-events: none;
+
+  a,
+  button {
+    pointer-events: all;
+  }
+
+  &__content {
+    @include mx.flex-center(column);
+    @include mx.content;
+
+    row-gap: vars.$space-xxl;
+    padding: 0 vars.$space-sm;
+
+    @include mx.screen(tablet) {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      column-gap: vars.$space-xl;
+      align-items: center;
+    }
+  }
+
+  &__title {
+    font-family: vars.$font-heading;
+    font-size: clamp(3.25rem, 8vw, 5rem);
+    font-weight: bold;
+    line-height: 0.9;
+    color: vars.$clr-black;
+    text-shadow: -1px -1px 1px vars.$clr-primary, -1px 1px 1px vars.$clr-primary, 1px 1px 1px vars.$clr-secondary, 1px -1px 1px vars.$clr-secondary, ;
+    text-transform: uppercase;
+    
+
+    span {
+      font-family: vars.$font-mono;
+      color: vars.$clr-secondary;
+      text-shadow: none;
+    }
+  }
+
+  &__subtitle {
+    width: 100%;
+
+    p {
+      max-width: vars.$card-md;
+      margin: 0 auto;
+      line-height: 1.2;
+      text-shadow: 1px 1px 0.5rem vars.$clr-black;
+    }
+
+    @include mx.screen(tablet) {
+      justify-items: end;
+
+      p {
+        max-width: vars.$card-sm;
+      }
+
+    }
+  }
+}

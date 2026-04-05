@@ -1,0 +1,15 @@
+@use '../abstracts/variables' as vars;
+@use '../abstracts/mixins' as mx;
+
+
+.viewer {
+  flex: 1;
+  width: 100%;
+  min-height: 30dvh;
+  background: transparent;
+
+  @include mx.screen(tablet) {
+    height: 100%;
+    min-height: vars.$card-md;
+  }
+}

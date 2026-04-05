@@ -1,0 +1,119 @@
+@use '../abstracts/variables' as vars;
+@use '../abstracts/mixins' as mx;
+
+.controls {
+  display: flex;
+  flex-direction: column;
+  gap: vars.$space-md;
+  width: 100%;
+  padding: vars.$space-md;
+  background: vars.$clr-dark-grey;
+  backdrop-filter: blur(10px);
+
+
+  h3 {
+    margin: 0;
+    color: vars.$clr-secondary;
+  }
+
+  h4 {
+    margin-bottom: vars.$space-sm;
+    font-size: vars.$font-size-sm;
+    color: vars.$clr-grey;
+    text-transform: uppercase;
+  }
+
+  p {
+    margin-bottom: 0;
+    font-size: vars.$font-size-sm
+  }
+
+  &__params {
+    @include mx.flex-center(row, space-between, start);
+
+    column-gap: vars.$space-lg;
+    margin-top: 0;
+  }
+
+  .field {
+    margin-bottom: vars.$space-sm;
+
+    &__label-group {
+      @include mx.flex-center(row, space-between, center);
+
+      margin-bottom: vars.$space-xs;
+
+      label {
+        font-size: vars.$font-size-sm;
+        color: vars.$clr-grey;
+      }
+
+      input[type="number"] {
+        width: vars.$icon-lg;
+        padding: calc(vars.$space-xs / 2);
+        color: vars.$clr-secondary;
+        text-align: center;
+        background: vars.$clr-bg;
+        border: 1px solid vars.$clr-dark-grey;
+        border-radius: vars.$radius;
+      }
+    }
+  }
+
+  .color-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: vars.$space-sm;
+
+    .color-btn {
+      width: vars.$icon-md;
+      height: vars.$icon-md ;
+      cursor: pointer;
+      border: 2px solid transparent;
+      border-radius: 50%;
+      transition: transform vars.$trans-fast;
+
+      &.is-active {
+        border-color: vars.$clr-secondary;
+        transform: scale(1.2);
+      }
+    }
+  }
+
+  .info-box {
+    margin-bottom: vars.$space-sm;
+
+    strong {
+      color: vars.$clr-accent;
+    }
+  }
+
+  .btn-primary {
+    width: 100%;
+    text-transform: uppercase;
+    letter-spacing: vars.$letter-spacing;
+  }
+
+  @include mx.screen(tablet) {
+    width: vars.$card-sm;
+    border-left: 1px solid vars.$clr-grey;
+
+    &__params {
+      @include mx.flex-center(column, space-between, start);
+
+      gap: vars.$space-xs;
+    }
+
+    h4 {
+      font-size: vars.$font-size-base;
+    }
+
+    p {
+    font-size: vars.$font-size-base;
+  }
+
+    .color-grid {
+      flex-wrap: nowrap;
+    }
+  }
+}

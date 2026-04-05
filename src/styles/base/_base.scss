@@ -1,0 +1,17 @@
+@use '../abstracts/variables' as vars;
+@use '../abstracts/mixins' as mx;
+
+body {
+  @include mx.flex-center(column);
+
+  font-family: vars.$font-sans;
+  font-size: vars.$font-size-base;
+  color: vars.$clr-text;
+  background: vars.$clr-black;
+}
+
+:focus-visible {
+  outline: 2px solid vars.$clr-accent;
+  outline-offset: 4px;
+  transition: outline-offset 0.2s ease;
+}

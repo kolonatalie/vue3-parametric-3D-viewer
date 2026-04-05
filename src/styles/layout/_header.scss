@@ -1,0 +1,29 @@
+@use '../abstracts/variables' as vars;
+@use '../abstracts/mixins' as mx;
+
+.header {
+  @include mx.flex-center(row, space-between, center);
+  @include mx.content;
+
+  position: fixed;
+  top: 0;
+  z-index: vars.$z-header;
+  min-height: vars.$header-height;
+  padding: vars.$space-xs vars.$space-sm 0;
+
+  &__logo {
+    width: vars.$icon-lg;
+    height: vars.$icon-lg;
+    font-size: vars.$font-size-base * 3;
+    line-height: 0.9;
+    color: vars.$clr-primary;
+    text-decoration: none;
+    transition: color vars.$trans-base, background vars.$trans-base;
+
+    &:hover,
+    &:active,
+    &:focus {
+      color: vars.$clr-secondary;
+    }
+  }
+}

@@ -1,0 +1,14 @@
+// Перетворення px в rem
+@function rem($px) {
+  @return calc($px / 16) * 1rem;
+}
+
+// Створення відтінків (інтелектуальний підхід)
+// Ми використовуємо oklch для чистоти кольору
+@function tint($color, $percentage) {
+  @return color-mix(in oklch, $color, white $percentage);
+}
+
+@function shade($color, $percentage) {
+  @return color-mix(in oklch, $color, black $percentage);
+}

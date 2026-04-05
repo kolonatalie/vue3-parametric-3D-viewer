@@ -1,0 +1,35 @@
+{
+  "plugins": [
+    "stylelint-selector-bem-pattern"
+  ],
+  "extends": [
+    "stylelint-config-standard-scss",
+    "stylelint-config-recess-order"
+  ],
+  "rules": {
+    "plugin/selector-bem-pattern": {
+      "preset": "bem",
+      "componentSelectors": {
+        "initial": "^\\.[a-z]([a-z0-9-]+)?(__[a-z0-9-]+)?(--[a-z0-9-]+)?$"
+      },
+      "ignoreSelectors": [
+        "\\.is-.*",
+        "\\.has-.*",
+        "\\.webgl",
+        "canvas"
+      ]
+    },
+    "scss/at-rule-no-unknown": true,
+    "scss/selector-no-redundant-nesting-selector": true,
+    "color-function-notation": "modern",
+    "alpha-value-notation": "number",
+    "no-descending-specificity": null,
+    "selector-class-pattern": [
+      "^[a-z]([a-z0-9-]+)?(__[a-z0-9-]+)?(--[a-z0-9-]+)?$",
+      {
+        "message": "The selector doesn't comply with the BEM methodology (block__element--modifier)"
+      }
+    ],
+    "max-nesting-depth": 3
+  }
+}

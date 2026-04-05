@@ -1,0 +1,76 @@
+@use '../abstracts/variables' as vars;
+@use '../abstracts/mixins' as mx;
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  height: 100dvh;
+  background: vars.$clr-bg;
+
+  @include mx.screen(tablet) {
+    flex-direction: row;
+    overflow: hidden;
+  }
+}
+
+.order-overlay {
+  @include mx.flex-center;
+  
+  position: fixed;
+  inset: 0;
+  z-index: vars.$z-overlay;
+  background: vars.$clr-black-90;
+}
+
+.order-card {
+  padding: vars.$space-lg;
+  margin: vars.$space-xs;
+  text-align: center;
+  background: vars.$clr-bg;
+  border: 1px solid vars.$clr-primary;
+  border-radius: vars.$radius;
+
+  h2 {
+    color: vars.$clr-primary;
+  }
+}
+
+.order-summary {
+  padding: vars.$space-sm;
+  margin: vars.$space-md 0;
+  background: #1a1a1a;
+  border-radius: vars.$radius;
+
+  .summary-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: vars.$space-xs;
+    color: vars.$clr-secondary;
+  }
+}
+
+.color-preview {
+  width: vars.$card-xs;
+  height: vars.$icon-sm;
+}
+
+.order-card__actions {
+  display: flex;
+  gap: vars.$space-xs;
+  margin-top: vars.$space-md;
+
+  button {
+    flex: 1;
+  }
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity vars.$trans-base;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
